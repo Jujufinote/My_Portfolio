@@ -9,7 +9,7 @@ This is a repo to show my skills, if there is some empty spaces please also look
 <br>
 
 **Parsing and logical resolution** <br>
-<a href="https://github.com/Jujufinote/42_minishell">So_long</a> -> mini shell issued of a 42 project, parent-child processes, pipes, redirections, heredoc
+<a href="https://github.com/Jujufinote/42_minishell">Minishell</a> -> mini shell issued of a 42 project, parent-child processes, pipes, redirections, heredoc
 <br>
 <br>
 
