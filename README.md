@@ -4,6 +4,7 @@ This is a repo to show my skills, if there is nothing in yet, please also look a
 <br>
 
 **Game :** <br>
+<a href="https://github.com/0tonton/Real-Transcendance">Ft_transcendence</a> -> Last group project of 42, web game, backend, frontend <br>
 <a href="https://github.com/Jujufinote/42_so_long">So_long</a> -> 2D pseudo mini game issued of a 42 project
 <br>
 <br>
@@ -20,6 +21,6 @@ This is a repo to show my skills, if there is nothing in yet, please also look a
 <br>
 
 **Web Layout :** <br>
-<a href="https://github.com/0tonton/Real-Transcendance">Ft_transcendence</a> -> Last group project of 42, web game, backend, frontend
+_waiting for update_
 <br>
 <br>
