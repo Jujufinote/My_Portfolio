@@ -1,0 +1,289 @@
+:root {
+	--white: #F4EFE6;
+	--black: rgb(12, 12, 12);
+	--blue-grey: #2E344D;
+	--violet: #451C4A;
+	--dark-violet: color-mix(in srgb, var(--violet) 60%, var(--blue-grey) 40%);
+	--dark-magenta: darkmagenta;
+	--pink: #C20B63;
+	--dark-pink: color-mix(in srgb, var(--pink) 60%, var(--blue-grey) 40%);
+	--blue: #1E2F97;
+	--dark-blue: color-mix(in srgb, var(--blue) 60%, var(--blue-grey) 40%);
+
+	/* dark / light */
+	--bg-color: var(--black);
+	--bg-img: url(../img/images.jpg);
+	--txt-color: var(--white);
+
+	--xs-pad: 5px;
+	--s-pad: 10px;
+	--m-pad: 20px;
+	--l-pad: 25px;
+	--xl-pad: 30px;
+
+	--size-font: 16px;
+	--size-h3: 20px;
+	--size-h2: 25px;
+	--size-h1: 31px;
+	--size-hero: 39px;
+}
+
+/* -------------------- Dyslexic people's adaptation's fonts */
+@font-face {
+	font-family: "Amita";
+	src: url(../fonts/Amita-Regular.ttf);
+}
+
+@font-face {
+	font-family: "AlegreyaSansMS";
+	src: url(../fonts/AlegreyaSansSC-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Nunito";
+	src: url(../fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Birthstone";
+	src: url(../fonts/Birthstone-Regular.ttf);
+}
+/* ----------------------------------------------------- End */
+
+
+/* ----------------------------------------------------------- */
+/* -------------------------- BASES -------------------------- */
+/* ----------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.emphasis {
+	font-size: calc(var(--size-font) - 1px);
+	font-family: "Amita";
+	font-weight: bold;
+}
+
+.signature {
+	font-family: "Birthstone";
+}
+
+body {
+	color: var(--txt-color);
+	font-family: "Nunito";
+	font-size: var(--size-font);
+	text-align: center;
+
+	/* Dyslexic people's adaptation's parameters */
+	line-height: 1.6;
+	letter-spacing: 0.02em;
+	max-width: 65ch;
+	/* ------------------------------------- End */
+
+	background-color: var(--bg-color);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section {
+	padding: var(--m-pad);
+}
+
+/* -------------------------------------------------- Titles */
+h1,h2,h3,h4 {
+	font-family: "AlegreyaSansMS";
+}
+
+h1 {
+	font-size: var(--size-h1);
+}
+
+h2 {
+	font-size: var(--size-h2);
+	margin-bottom: var(--m-pad);
+}
+
+h3 {
+	font-size: var(--size-h3);
+	margin-bottom: var(--s-pad);
+}
+
+h4 {
+	margin-bottom: var(--xs-pad);
+}
+/* ---------------------------------------------- Titles end */
+
+p {
+	margin: 15px 0;
+}
+
+/* ----------------------------------------------------------- */
+/* -------------------------- TITLE -------------------------- */
+/* ----------------------------------------------------------- */
+
+#title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-image: var(--bg-img);
+}
+
+#title h1 {
+	font-size: var(--size-hero);
+}
+
+#title p {
+	font-family: "AlegreyaSansMS";
+	font-size: var(--size-h3);
+}
+
+
+/* ----------------------------------------------------------- */
+/* ------------------------- PROJECTS ------------------------ */
+/* ----------------------------------------------------------- */
+
+#project > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* --------------------------------------------- Cards start */
+#project > div > div:first-child {
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: 4;
+}
+
+#project > div > div:first-child > a {
+	all: unset;
+	margin: var(--s-pad);
+}
+
+#project article {
+	width: 250px;
+	height: 350px;
+
+	cursor: pointer;
+
+	border: 5px ridge;
+	border-radius: 8px;
+	border-color: var(--white);
+
+	transition: transform 0.5s ease;
+	transform-style: preserve-3d;
+}
+
+#project article:hover {
+	transform: perspective(400px) rotateX(5deg) rotateY(5deg) scale(1.05);
+	box-shadow: 3px 3px 15px var(--violet);
+}
+
+#project article p {
+	transform: skewX(-5deg);
+	color: var(--pink);
+}
+
+#project article span {
+	display: inline-block;
+
+	background: linear-gradient(90deg, red, orange, yellow, green, blue, violet, red);
+	background-size: 200%;
+	background-clip: text;
+
+	color: transparent;
+
+	transform: skewX(3deg);
+	animation: rainbowMove 3s linear infinite;
+}
+
+@keyframes rainbowMove {
+	to {
+		background-position: 200%;
+	}
+}
+/* ----------------------------------------------- Cards end */
+
+/* --------------------------------------- Description start */
+#project > div > div:not(:first-child) {
+	display: none;
+	padding: var(--s-pad);
+
+	border-radius: 10px;
+	border-color: var(--white);
+	border-style: ridge;
+	border-width: 2px;
+
+	background: linear-gradient(165deg, var(--violet) 0%, var(--violet) 30%, var(--pink));
+}
+
+#project button {
+	margin: var(--m-pad);
+
+	position: relative;
+	top: 60px;
+	
+	align-self: flex-end;
+	
+	display: none;
+	
+	border-radius: 50%;
+	border-color: var(--white);
+	border-style: solid;
+	border-width: 1.2px;
+	
+	background: none;
+	color: inherit;
+	font-size: 0;
+}
+
+#project button:active {
+	transform: scale(0.85);
+	transition: ease;
+}
+/* ----------------------------------------- Description end */
+
+
+/* ----------------------------------------------------------- */
+/* -------------------------- ABOUT -------------------------- */
+/* ----------------------------------------------------------- */
+
+#about div:not(:first-of-type) {
+	margin: var(--l-pad) 0;
+}
+
+#about div:nth-of-type(2) p {
+	transform: skewX(-8deg);
+	filter: brightness(0.7);
+}
+
+#about h4 {
+	text-align: left;
+}
+
+#about ul {
+	text-align: left;
+	padding-left: var(--m-pad);
+	padding-bottom: var(--s-pad);
+}
+
+/* ----------------------------------------------------------- */
+/* -------------------------- FOOTER ------------------------- */
+/* ----------------------------------------------------------- */
+
+footer a {
+	color: inherit;
+}

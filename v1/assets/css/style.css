@@ -1,0 +1,175 @@
+:root {
+	--white: #F4EFE6;
+	--blue-grey: #2E344D;
+	--violet: #451C4A;
+	--dark-violet: color-mix(in srgb, var(--violet) 60%, var(--blue-grey) 40%);
+	--pink: #C20B63;
+	--dark-pink: color-mix(in srgb, var(--pink) 60%, var(--blue-grey) 40%);
+	--blue: #1E2F97;
+	--dark-blue: color-mix(in srgb, var(var(--blue)) 60%, var(--blue-grey) 40%);
+}
+
+body {
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-image: url(../img/images.jpg);
+}
+
+/* --------------------------------------- */
+
+/* --------------- Navbar ---------------- */
+
+nav {
+	display: flex;
+	justify-content: center;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+nav button {
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 7px 12px;
+	margin: 7px;
+	border-radius: 15px;
+	border: none;
+	background: none;
+	color: var(--white);
+	transition: all 0.2s ease;
+}
+
+nav button:hover:not(.page,.move) {
+	transform: scale(1.1);
+	box-shadow:
+		inset 0 2px 4px rgba(255,255,255,0.4),
+		inset 0 -2px 5px rgba(0,0,0,0.4),
+		0 3px 8px rgba(0,0,0,0.3);
+	filter: drop-shadow(0 0 var(--white));
+}
+
+nav button:active:not(.page,.move)
+{
+	transform: scale(0.85);
+}
+
+nav button.page {
+	background: linear-gradient(
+		to right,
+		var(--dark-pink) 0%,
+		var(--pink) 33%,
+		var(--pink) 70%,
+		var(--dark-pink) 100%
+	);
+	box-shadow:
+		inset 0 3px 6px rgba(255,255,255,0.4),
+		inset 0 -4px 8px rgba(0,0,0,0.4),
+		0 5px 15px rgba(0,0,0,0.4);
+	cursor: not-allowed;
+}
+
+/* --------------------------------------- */
+
+/* -------- Button CV + animation -------- */
+
+nav button.cv {
+	background: linear-gradient(to right, var(--violet) 0%, darkmagenta 25%, darkmagenta 100%);
+	box-shadow:
+		inset 0 3px 6px rgba(255,255,255,0.4),
+		inset 0 -4px 8px rgba(0,0,0,0.4),
+		0 5px 15px rgba(0,0,0,0.4);
+	padding: 5px;
+}
+
+nav button.cv span {
+	padding: 2px 7px 2px 0;
+}
+
+nav .here {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 20px;
+	margin-right: 5px;
+	border-radius: 50%;
+	background-color: black;
+	color: darkmagenta;
+	box-shadow: inset -2px 3px 6px rgba(255,255,255,0.3);
+}
+
+nav button.cv .star {
+	display: none;
+	position: absolute;
+	top: calc(50% - 2px);
+	left: calc(50% - 2px);
+	width: 4px;
+	height: 4px;
+	transform-origin: center;
+	clip-path: path("M 2 0 C 2 1, 3 2, 4 2 C 3 2, 2 3, 2 4 C 2 3, 1 2, 0 2 C 1 2, 2 1, 2 0 Z");
+	background-color: white;
+	filter: drop-shadow(0 0 10px #fffdef);
+}
+
+
+
+nav button.cv.move > div:first-of-type,nav button.cv.move > span {
+	cursor: not-allowed;
+	animation: cv-out 1.2s linear;
+}
+
+nav button.cv .star.move {
+	display: block;
+	animation: star-out 1.2s linear;
+}
+
+@keyframes star-out {
+	0% {
+		transform: scale(var(--size) * 0.05) translate(var(--x), var(--y));
+	}
+
+	12% {
+		transform: scale(calc(var(--size) * 0.9)) translate(calc(var(--x) * 1.9), calc(var(--y) * 1.9));
+	}
+
+	90% {
+		transform: scale(var(--size)) translate(calc(var(--x) * 2), calc(var(--y) * 2));
+	}
+
+	100% {
+		transform: scale(1) translate(var(--x), var(--y));
+	}
+}
+
+@keyframes cv-out {
+	0% {
+		transform: scale(0.85);
+	}
+
+	12% {
+		transform: scale(0.5);
+	}
+
+	90% {
+		transform: scale(0.4);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* --------------------------------------- */
+
+section {
+	display: none;
+}
+
+section #home {
+	display: block;
+}
