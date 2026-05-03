@@ -1,0 +1,747 @@
+:root {
+	--white: rgb(244, 239, 230);
+	--black: rgb(12, 12, 12);
+	--blue-grey: rgb(46, 52, 77);
+	--violet: rgb(69, 28, 74);
+	--dark-violet: color-mix(in srgb, var(--violet) 60%, var(--blue-grey) 40%);
+	--dark-magenta: darkmagenta;
+	--pink: rgb(194, 11, 99);
+	--dark-pink: color-mix(in srgb, var(--pink) 60%, var(--blue-grey) 40%);
+	--blue: rgb(30, 47, 151);
+	--dark-blue: color-mix(in srgb, var(--blue) 60%, var(--blue-grey) 40%);
+
+	
+	/* mode dark / light */
+	--bg-img: url(../img/bg_b.jpg);
+	--bg-color: var(--black);
+	--txt-color: var(--white);
+	--shadow-black: 12 12 12;
+	--shadow-white: 244 239 230;
+
+	--xs: 5px;
+	--s: 10px;
+	--m: 20px;
+	--l: 25px;
+	--xl: 30px;
+
+	--size-font: 16px;
+	--size-h3: 20px;
+	--size-h2: 25px;
+	--size-h1: 31px;
+	--size-hero: 39px;
+}
+
+/* -------------------- Dyslexic people's adaptation's fonts */
+@font-face {
+	font-family: "Amita";
+	src: url(../fonts/Amita-Regular.ttf);
+}
+
+@font-face {
+	font-family: "AlegreyaSansMS";
+	src: url(../fonts/AlegreyaSansSC-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Nunito";
+	src: url(../fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Birthstone";
+	src: url(../fonts/Birthstone-Regular.ttf);
+}
+/* ----------------------------------------------------- End */
+
+.emphasis {
+	font-size: calc(var(--size-font) - 1px);
+	font-family: "Amita";
+	font-weight: bold;
+}
+
+.signature {
+	font-family: "Birthstone";
+}
+
+.info {
+	transform: skewX(-8deg);
+	filter: brightness(0.7);
+}
+
+
+/* ----------------------------------------------------------- */
+/* -------------------------- RESET -------------------------- */
+/* ----------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+	z-index: 5;
+
+	-webkit-tap-highlight-color: transparent;
+
+	transition: all 1s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 3px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--txt-color);
+	font-family: "Nunito";
+	font-size: var(--size-font);
+	text-align: center;
+
+	/* Dyslexic people's adaptation's parameters */
+	line-height: 1.6;
+	letter-spacing: 0.02em;
+	max-width: 65ch;
+	/* ------------------------------------- End */
+
+	background-color: var(--bg-color);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section {
+	padding: var(--m);
+}
+
+button {
+	all: unset;
+	cursor: pointer;
+}
+
+a {
+	all: unset;
+	cursor: pointer;
+}
+
+/* -------------------------------------------------- Titles */
+h1,h2,h3,h4 {
+	font-family: "AlegreyaSansMS";
+}
+
+h1 {
+	font-size: var(--size-h1);
+}
+
+h2 {
+	font-size: var(--size-h2);
+	margin-bottom: var(--m);
+}
+
+h3 {
+	font-size: var(--size-h3);
+	margin-bottom: var(--s);
+}
+
+h4 {
+	margin-bottom: var(--xs);
+}
+/* ---------------------------------------------- Titles end */
+
+p {
+	margin: 15px 0;
+}
+
+
+/* ----------------------------------------------------------- */
+/* ------------------------- HEADER -------------------------- */
+/* ----------------------------------------------------------- */
+
+header {
+	position: fixed;
+	bottom: calc(var(--s) + 5px);
+	right: var(--s);
+	z-index: 7;
+
+	height: 500px;
+	width: 200px;
+}
+
+/* -------------------------------------------------- Navbar */
+.header__navigation {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: unset;
+	align-items: center;
+}
+
+.header__navigation > * {
+	margin: var(--m) 0;
+	z-index: 7;
+}
+
+.navigation__visible_element {
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: all 0.6s ease;
+}
+
+.navigation__visible_element.open {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.navigation__title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all 0.2s ease;
+}
+
+.navigation__title:hover {
+	transform: scale(1.2);
+}
+
+.navigation__title:active {
+	transform: scale(0.9);
+}
+
+.navigation__title > img {
+	margin-right: var(--s);
+}
+
+.navigation__list {
+	list-style: none;
+}
+
+.navigation__links {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navigation__links > a {
+	position: relative;
+
+	padding: 7px 12px;
+	margin: 7px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 15px;
+	border: none;
+
+	background: none;
+
+	transition: all 0.2s ease;
+}
+
+.navigation__links > a:before {
+	content: "";
+
+	position: absolute;
+	inset: 0;
+	z-index: 4;
+
+	border-radius: 15px;
+	border: none;
+
+	background: linear-gradient(
+		to right,
+		var(--dark-pink) 0%,
+		var(--pink) 33%,
+		var(--pink) 70%,
+		var(--dark-pink) 100%
+	);
+
+	box-shadow:
+		inset 0 3px 6px rgba(255,255,255,0.4),
+		inset 0 -4px 8px rgba(0,0,0,0.4);
+
+	opacity: 0;
+}
+
+.navigation__links > a:hover {
+	transform: scale(1.2);
+}
+
+.navigation__links > a:active {
+	transform: scale(0.9);
+}
+
+.navigation__links > a > span {
+	transition: none;
+}
+
+.navigation__links > a.page:before {
+	opacity: 1;
+}
+
+.navigation__links > a.page:hover {
+	box-shadow:
+		2px 2px 10px rgb(var(--shadow-white) / 0.4);
+}
+
+.navigation__links > a.page > span {
+	color: var(--white);
+}
+
+/* ------------------------------- Button CV + animation */
+.navigation__links > a.cv {
+	padding: 0;
+}
+
+.navigation__links > a.cv > button {
+	position: relative;
+
+	padding: 5px;
+
+	color: var(--white);
+	
+	border-radius: 15px;
+		
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: linear-gradient(to right, var(--violet) 0%, darkmagenta 25%, darkmagenta 100%);
+
+	box-shadow:
+		inset 0 3px 6px rgba(255,255,255,0.4),
+		inset 0 -4px 8px rgba(0,0,0,0.4);
+}
+
+.navigation__links > a.cv > button:hover {
+	box-shadow:
+		inset 0 3px 6px rgba(255,255,255,0.4),
+		inset 0 -4px 8px rgba(0,0,0,0.4),
+		2px 2px 10px rgb(var(--shadow-white) / 0.4);
+}
+
+.navigation__links > a.cv > button > div.here {
+	margin-right: 5px;
+
+	height: 25px;
+	width: 25px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	border-radius: 50%;
+
+	background-color: black;
+	box-shadow: inset -2px 3px 6px rgba(255,255,255,0.4);
+
+	color: var(--dark-magenta);
+}
+
+.navigation__links > a.cv > button > span {
+	padding: 2px 7px 2px 0;
+}
+
+.navigation__links > a.cv > button.move > span {
+	cursor: not-allowed;
+	animation: cv-out 1.2s linear;
+}
+
+@keyframes cv-out {
+	12% {
+		transform: scale(1.4);
+		opacity: 0;
+	}
+
+	90% {
+		transform: scale(1.5);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.navigation__links > a.cv .star {
+	position: absolute;
+	top: calc(50% - 2px);
+	left: calc(50% - 2px);
+	
+	width: 4px;
+	height: 4px;
+	
+	display: none;
+
+	background-color: rgb(255, 163, 208);
+
+	transform-origin: center;
+	clip-path: path("M 2 0 C 2 1, 3 2, 4 2 C 3 2, 2 3, 2 4 C 2 3, 1 2, 0 2 C 1 2, 2 1, 2 0 Z");
+}
+
+.navigation__links > a.cv .star.move {
+	display: block;
+	animation: star-out 1.2s linear;
+}
+
+@keyframes star-out {
+	0% {
+		transform: scale(var(--size) * 0.05) translate(var(--x), var(--y));
+	}
+
+	12% {
+		transform: scale(calc(var(--size) * 0.9)) translate(calc(var(--x) * 1.9), calc(var(--y) * 1.9));
+	}
+
+	90% {
+		transform: scale(var(--size)) translate(calc(var(--x) * 2), calc(var(--y) * 2));
+	}
+
+	100% {
+		transform: scale(1) translate(var(--x), var(--y));
+	}
+}
+/* --------------------------- Button CV + animation end */
+
+/* ------------------------------------------------ Mode */
+.mode__div {
+	display: flex;
+	align-items: center;
+}
+
+.mode__div > button {
+	margin-left: var(--s);
+
+	height: 30px;
+	width: 55px;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	border-radius: 15px;
+	border-style: solid;
+	border-color: var(--txt-color);
+	border-width: 1px;
+
+	background-color: var(--bg-color);
+
+	box-shadow:
+		inset 0 3px 6px rgba(0,0,0,0.4),
+		inset 0 -4px 8px rgba(255,255,255,0.4);
+
+	transition: all 1s ease;
+}
+
+.mode__div > button > div {
+	margin: 0 1px;
+
+	height: 25px;
+	width: 25px;
+
+	border-radius: 50%;
+
+	background: linear-gradient(
+		45deg,
+		var(--dark-pink) 0%,
+		var(--pink) 33%,
+		var(--pink) 70%,
+		var(--dark-pink) 100%
+	);
+
+	box-shadow:
+		inset 0 3px 6px rgba(255,255,255,0.4),
+		inset 0 -4px 8px rgba(0,0,0,0.4);
+
+	transition: all 1s ease;
+
+	--x: 0px;
+	transform: translateX(var(--x, 0px)) scale(1);
+}
+
+.mode__div > button.light > div {
+	--x: 28px;
+}
+
+.mode__div > button:hover > div {
+	transform: translateX(var(--x, 0px)) scale(1.2);
+}
+/* -------------------------------------------- Mode end */
+
+/* ---------------------------------------------- Burger */
+.navigation__background {
+	position: absolute;
+	bottom: -65px;
+	right: 0;
+	z-index: 6;
+
+	height: 50px;
+	width: 50px;
+
+	font-size: 0;
+
+	border-radius: 50%;
+	border-color: var(--txt-color);
+	border-width: 1px;
+	border-style: solid;
+
+	background-color: rgb(var(--shadow-black) / 0.8);
+	/* backdrop-filter: blur(4px); */
+}
+
+.navigation__background.open {
+	animation: menu-open 0.6s forwards;
+}
+
+.navigation__background.close {
+	animation: menu-open 0.6s reverse;
+}
+
+@keyframes menu-open {
+	20%{
+		border-radius: 12px;
+		height: 50px;
+		width: 50px;
+	}
+	100% {
+		border-radius: 12px;
+		height: 110%;
+		width: 100%;
+	}
+}
+
+.navigation__background > button {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+
+	height: 50px;
+	width: 50px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navigation__background > button > div {
+	position: relative;
+
+	height: 3px;
+	width: 33px;
+
+	border-radius: 3px;
+
+	background-color: var(--txt-color);
+}
+
+.navigation__background.open > button > div {
+	background-color: transparent;
+}
+
+.navigation__background > button > div::before, .navigation__background > button > div::after {
+	content: "";
+
+	position: absolute;
+	left: 0px;
+
+	height: 3px;
+	width: 33px;
+
+	border-radius: 3px;
+
+	background-color: var(--txt-color);
+
+	transition: all 1s ease;
+}
+
+.navigation__background > button > div::before {
+	transform: translateY(-10px);
+}
+
+.navigation__background.open > button > div::before {
+	transform: rotate(45deg);
+}
+
+.navigation__background > button > div::after {
+	transform: translateY(10px);
+}
+
+.navigation__background.open > button > div::after {
+	transform: rotate(-45deg);
+}
+/* ------------------------------------------ Burger end */
+/* ---------------------------------------------- Navbar end */
+
+
+/* ----------------------------------------------------------- */
+/* -------------------------- TITLE -------------------------- */
+/* ----------------------------------------------------------- */
+
+.title__section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	background-size: cover;
+	background-attachment: fixed;
+	background-image: var(--bg-img);
+}
+
+.title__section h1 {
+	font-size: var(--size-hero);
+}
+
+.title__section p {
+	font-family: "AlegreyaSansMS";
+	font-size: var(--size-h3);
+}
+
+
+/* ----------------------------------------------------------- */
+/* ------------------------- PROJECTS ------------------------ */
+/* ----------------------------------------------------------- */
+
+.project__section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* --------------------------------------------- Cards start */
+.project__section > .project__cards {
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: 4;
+}
+
+.project__section > .project__cards > a {
+	margin: var(--s);
+}
+
+.project__section > .project__cards > a > article {
+	width: 250px;
+	height: 350px;
+
+	cursor: pointer;
+
+	border: 5px ridge;
+	border-radius: 8px;
+	border-color: var(--txt-color);
+
+	transition: transform 0.5s ease;
+	transform-style: preserve-3d;
+}
+
+.project__section > .project__cards > a > article:hover {
+	transform: perspective(400px) rotateX(5deg) rotateY(5deg) scale(1.05);
+	box-shadow: 5px 5px 15px var(--dark-magenta);
+}
+
+.project__section > .project__cards > a > article > p {
+	transform: skewX(-5deg);
+	color: var(--pink);
+}
+
+.project__section > .project__cards > a > article > span {
+	display: inline-block;
+
+	background: linear-gradient(90deg, red, orange, yellow, green, blue, violet, red);
+	background-size: 200%;
+	background-clip: text;
+
+	color: transparent;
+
+	transform: skewX(3deg);
+	animation: rainbowMove 3s linear infinite;
+}
+
+@keyframes rainbowMove {
+	to {
+		background-position: -200%;
+	}
+}
+/* ----------------------------------------------- Cards end */
+
+/* --------------------------------------- Description start */
+.project__section > .project__description {
+	position: relative;
+}
+
+.project__section > .project__description > button {
+	position: absolute;
+	top: var(--m);
+	right: var(--m);
+	z-index: 6;
+	
+	align-self: flex-end;
+	
+	display: none;
+
+	border: none;
+	background: none;
+	color: inherit;
+	font-size: 0;
+}
+
+.project__section > .project__description > button:active {
+	transform: scale(0.85);
+	transition: ease;
+}
+
+.project__section > .project__description > div {
+	display: none;
+	padding: var(--s);
+
+	color: var(--white);
+
+	border-radius: 10px;
+	border-color: var(--txt-color);
+	border-style: ridge;
+	border-width: 2px;
+
+	background: linear-gradient(165deg, var(--violet) 0%, var(--violet) 30%, var(--pink));
+}
+/* ----------------------------------------- Description end */
+
+
+/* ----------------------------------------------------------- */
+/* -------------------------- ABOUT -------------------------- */
+/* ----------------------------------------------------------- */
+
+.about__section div:not(:first-of-type) {
+	margin: var(--l) 0;
+}
+
+.about__section h4 {
+	text-align: left;
+}
+
+.about__section ul {
+	text-align: left;
+	margin-left: var(--xl);
+	margin-bottom: var(--s);
+}
+
+/* ----------------------------------------------------------- */
+/* -------------------------- FOOTER ------------------------- */
+/* ----------------------------------------------------------- */
+
+footer a {
+	color: inherit;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
