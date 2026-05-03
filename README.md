@@ -1,5 +1,5 @@
 ### My_Portfolio
-This is a repo to show my skills, if there is nothing in yet, please also look at the repositories liked below sorted by themes :
+The website is not ready yet, please look at the repositories liked below sorted by themes (or look at it anyway, as you want :) )
 <br>
 <br>
 
