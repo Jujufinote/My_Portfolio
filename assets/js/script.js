@@ -4,9 +4,39 @@
 const root = document.documentElement;
 const styles = getComputedStyle(root);
 
-function sleep(ms) {
+function sleep(ms)
+{
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+async function typing()
+{
+	const elements = document.querySelectorAll(".typing");
+	for (let element of elements)
+	{
+		const text = element.dataset.text; // access of html rule data-text
+		for (let i = 0; i < text.length; i++)
+		{
+			element.textContent += text[i];
+			await sleep(80);
+		}
+	}
+}
+typing();
+
+async function bouncing()
+{
+	const elements = document.querySelectorAll(".signature");
+	for (let element of elements)
+	{
+		const letters = element.textContent.split("");
+
+		element.innerHTML = letters.map((letter, i) =>
+	    	`<span style="--i:${i}">${letter === " " ? "&nbsp;" : letter}</span>`
+		).join("");
+	}
+}
+bouncing();
 
 
 /* ----------------------------------------------------------- */
@@ -158,7 +188,7 @@ function changeMode()
 		mode_btn.classList.add("light");
 		mode_btn.classList.remove("dark");
 
-		root.style.setProperty("--bg-img", "url(../img/bg_w.jpg)");
+		root.style.setProperty("--bg-img", "url(../img/bg-w/bg_1920x1080.jpg)");
 		root.style.setProperty("--bg-color", styles.getPropertyValue("--white"));
 		root.style.setProperty("--txt-color", styles.getPropertyValue("--black"));
 		dark = false;
@@ -169,7 +199,7 @@ function changeMode()
 		mode_btn.classList.add("dark");
 		mode_btn.classList.remove("light");
 
-		root.style.setProperty("--bg-img", "url(../img/bg_b.jpg)");
+		root.style.setProperty("--bg-img", "url(../img/bg-b/bg_1920x1080.jpg)");
 		root.style.setProperty("--bg-color", styles.getPropertyValue("--black"));
 		root.style.setProperty("--txt-color", styles.getPropertyValue("--white"));
 		dark = true;
