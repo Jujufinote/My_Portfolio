@@ -172,7 +172,10 @@ function mouveStars()
 };
 /* ------------------------------------------- Stars end */
 
-/* ------------------------------------------------ Mode */
+// /* ------------------------------------------------ Mode */
+// const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// console.log(isDarkMode); // true ou false
+
 const mode_img = document.querySelector("#mode > img");
 const mode_btn = document.querySelector("#mode > button");
 
@@ -188,7 +191,15 @@ function changeMode()
 		mode_btn.classList.add("light");
 		mode_btn.classList.remove("dark");
 
-		root.style.setProperty("--bg-img", "url(../img/bg-w/bg_1920x1080.jpg)");
+		const elements = document.querySelectorAll("picture > img, picture > source");
+		elements.forEach(element => {
+			if (element.src)
+				element.src = element.src.replace(/\/bg-b\//g, "/bg-w/");
+
+			if (element.srcset)
+				element.srcset = element.srcset.replace(/\/bg-b\//g, "/bg-w/");
+		});
+
 		root.style.setProperty("--bg-color", styles.getPropertyValue("--white"));
 		root.style.setProperty("--txt-color", styles.getPropertyValue("--black"));
 		dark = false;
@@ -199,7 +210,15 @@ function changeMode()
 		mode_btn.classList.add("dark");
 		mode_btn.classList.remove("light");
 
-		root.style.setProperty("--bg-img", "url(../img/bg-b/bg_1920x1080.jpg)");
+		const elements = document.querySelectorAll("picture > img, picture > source");
+		elements.forEach(element => {
+			if (element.src)
+				element.src = element.src.replace(/\/bg-w\//g, "/bg-b/");
+
+			if (element.srcset)
+				element.srcset = element.srcset.replace(/\/bg-w\//g, "/bg-b/");
+		});
+
 		root.style.setProperty("--bg-color", styles.getPropertyValue("--black"));
 		root.style.setProperty("--txt-color", styles.getPropertyValue("--white"));
 		dark = true;

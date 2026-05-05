@@ -11,7 +11,7 @@
 	<body>
 		<header>
 			<nav class="header__navigation">
-				<a class="navigation__visible_element navigation__title" href="#title"><img src="assets/img/champignon.png" height="40px" width="40px" /><span>Julie</span></a>
+				<a class="navigation__visible_element navigation__title" href="#title"><img src="assets/img/champignon.png" height="40px" width="40px" alt="icone champignon" /><span>Julie</span></a>
 				<ul class="navigation__list">
 					<li class="navigation__visible_element navigation__links"><a href="#home" class="page"><span>Accueil</span></a></li>
 					<li class="navigation__visible_element navigation__links"><a href="#project"><span>Mes projets</span></a></li>
@@ -19,12 +19,27 @@
 					<li class="navigation__visible_element navigation__links"><a href="#contact"><span>Contact</span></a></li>
 					<li class="navigation__visible_element navigation__links"><a href="#title" class="cv"><button><div class="here">></div><span>Télécharger CV</span></button></a></li>
 				</ul>
-				<div class="navigation__visible_element mode__div" id="mode"><img src="assets/img/paillettes.svg" height="20px" width="20px" /><button class="dark"><div></div></button></div>
-				<div class="navigation__background"><button id="burger"><div></div></button></div>
+				<div class="navigation__visible_element mode__div" id="mode"><img src="assets/img/paillettes.svg" height="20px" width="20px" alt="icone des modes: clair/sombre" /><button class="dark" aria-label="mode sombre ou clair"><div></div></button></div>
+				<div class="navigation__background"><button id="burger" aria-label="ouvrir ou fermer le menu"><div></div></button></div>
 			</nav>
 		</header>
 		<main>
 			<section class="title__section" id="title">
+				<picture>
+					<source 
+						type="image/avif"
+						srcset="assets/img/bg-b/bg_480x800.avif 480w, assets/img/bg-b/bg_1024x600.avif 1024w, assets/img/bg-b/bg_1920x1080.avif 1920w, assets/img/bg-b/bg_2880x1800.avif 2880w"
+					>
+					<source 
+						type="image/webp"
+						srcset="assets/img/bg-b/bg_480x800.webp 480w, assets/img/bg-b/bg_1024x600.webp 1024w, assets/img/bg-b/bg_1920x1080.webp 1920w, assets/img/bg-b/bg_2880x1800.webp 2880w"
+					>
+					<img 
+						src="assets/img/bg-b/bg_1920x1080.jpg"
+						srcset="assets/img/bg-b/bg_480x800.jpg 480w, assets/img/bg-b/bg_1024x600.jpg 1024w, assets/img/bg-b/bg_1920x1080.jpg 1920w, assets/img/bg-b/bg_2880x1800.jpg 2880w"
+						alt="image banniere de ciel"
+					>
+				</picture>
 				<h1 class="typing" data-text="Développeuse Frontend en devenir"></h1>
 				<p class="typing" data-text="Passionnée par l'intéractivité et l'expérience utilisateur"></p>
 			</section>
@@ -41,34 +56,34 @@
 					<a href="#11">
 						<article id="1">
 							<h3>42_project : ft_transcendence</h3>
-							<img src=""/>
+							<img src="" alt="screenshot du projet transcendence" loading="lazy" />
 							<span>Click Me</span>
 						</article>
 					</a>
 					<a href="#21">
 						<article id="2">
 							<h3>42_project : So_long</h3>
-							<img src=""/>
+							<img src="" alt="screenshot du projet so long" loading="lazy" />
 							<span>Click Me</span>
 						</article>
 					</a>
 					<a href="#31">
 						<article id="3">
 							<h3>42_project : minishell</h3>
-							<img src=""/>
+							<img src="" alt="screenshot du projet minishell" loading="lazy" />
 							<span>Click Me</span>
 						</article>
 					</a>
 					<a href="#41">
 						<article id="4">
 							<h3>Web Frontend</h3>
-							<img src=""/>
+							<img src="" alt="screenshot de differentes features web" loading="lazy" />
 							<span>Click Me</span>
 						</article>
 					</a>
 				</div>
 				<div class="project__description">
-					<button id="close"><img src="assets/img/traverser.svg" /></button>
+					<button id="close" aria-label="Fermer le resumé"><img src="assets/img/traverser.svg" /></button>
 					<div id="11">
 						<h3>42_project : ft_transcendence</h3>
 						<p>Stack utilisée : mysql, DockerFile, Makefile, TypeScript, Tailwind, Vue.js, CSS</p>
