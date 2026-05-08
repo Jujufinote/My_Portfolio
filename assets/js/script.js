@@ -173,13 +173,21 @@ function mouveStars()
 /* ------------------------------------------- Stars end */
 
 // /* ------------------------------------------------ Mode */
-// const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-// console.log(isDarkMode); // true ou false
-
 const mode_img = document.querySelector("#mode > img");
 const mode_btn = document.querySelector("#mode > button");
 
-let dark = true;
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
+let dark;
+if (isLightMode)
+	dark = true;
+else
+	dark = false;
+
+changeMode();
+const temp = styles.getPropertyValue("--shadow-white");
+root.style.setProperty("--shadow-white", styles.getPropertyValue("--shadow-black"));
+root.style.setProperty("--shadow-black", temp);
+	
 
 mode_btn.addEventListener("click", () => changeMode());
 
