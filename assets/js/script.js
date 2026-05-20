@@ -65,7 +65,7 @@ const observer = new IntersectionObserver(entries =>
 	});
 },
 {
-	threshold: 0.4
+	threshold: 0.3
 });
 
 sections.forEach(section =>
@@ -243,6 +243,7 @@ function changeMode()
 
 /* ---------------------------------------------- Burger */
 const burger = document.getElementById("burger");
+const nav_burger = document.querySelector(".navigation__burger");
 const nav_background = document.querySelector(".navigation__background");
 const nav_elements = document.querySelectorAll(".navigation__visible_element");
 const reverse_nav_elements = [...nav_elements].reverse();
@@ -254,10 +255,12 @@ async function expandNav()
 {
 	if (is_open === false)
 	{
-		nav_background.classList.remove("close");
-		void nav_background.offsetWidth; // force reset animation
-		nav_background.classList.add("open");
+		nav_burger.classList.remove("close");
+		void nav_burger.offsetWidth; // force reset animation
+		nav_burger.classList.add("open");
 
+		nav_background.classList.add("open");
+		
 		burger.disabled = true;
 		burger.style.cursor = "not-allowed";
 		setTimeout(() => {
@@ -265,7 +268,7 @@ async function expandNav()
 			burger.disabled = false;
 		}, 600);
 
-		await sleep(600 * 0.2);
+		await sleep(600 * 0.1);
 		for (const element of reverse_nav_elements)
 		{
 			element.classList.add("open");
@@ -282,12 +285,15 @@ async function expandNav()
 		for (const element of nav_elements)
 		{
 			element.classList.remove("open");
-			await sleep((600 - 600 * 0.2) / nav_elements.length);
+			if (element !== nav_elements[nav_elements.length - 1])
+				await sleep((600 - 600 * 0.2) / nav_elements.length);
 		}
 
 		nav_background.classList.remove("open");
-		void nav_background.offsetWidth; // force reset animation
-		nav_background.classList.add("close");
+
+		nav_burger.classList.remove("open");
+		void nav_burger.offsetWidth; // force reset animation
+		nav_burger.classList.add("close");
 
 		setTimeout(() => {
 			burger.style.cursor = "pointer";

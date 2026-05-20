@@ -202,6 +202,8 @@ main {
 
 section {
 	padding: var(--m);
+	scroll-margin-top: var(--l);
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -260,13 +262,31 @@ header {
 	height: 500px;
 	width: 200px;
 
+	font-size: 16px;
+
 	pointer-events: none;
+}
+
+@media (min-width: 992px) {
+	header {
+		position: sticky;
+		top: 0;
+		bottom: unset;
+		right: unset;
+
+		height: 55px;
+		width: 100%;
+
+		font-size: var(--size-font);
+
+		border-bottom: 1px solid var(--txt-color);
+
+		background-color: rgb(var(--shadow-black) / 0.9);
+	}
 }
 
 /* -------------------------------------------------- Navbar */
 .header__navigation {
-	position: relative;
-
 	height: 100%;
 	width: 100%;
 
@@ -275,12 +295,28 @@ header {
 	align-items: center;
 }
 
-.header__navigation > * {
+@media (min-width: 992px) {
+	.header__navigation {
+		position: fixed;
+		right: 0;
+		top: 0;
+
+		height: 100vh;
+		width: fit-content;
+
+		justify-content: center;
+	}
+}
+
+.header__navigation > *:not(.navigation__background, .navigation__burger, .navigation__title) {
 	margin: 20px 0;
 	z-index: 7;
 }
 
 .navigation__title {
+	margin: 20px 0;
+	z-index: 7;
+
 	display: flex;
 	align-items: center;
 
@@ -289,8 +325,16 @@ header {
 
 @media (min-width: 992px)
 {
-	.navigation__title:hover {
-		transform: scale(1.2);
+	.navigation__title {
+		position: fixed;
+		top: 7px;
+		left: 15px;
+
+		margin: 0;
+	}
+
+	.navigation__title > span {
+		display: none;
 	}
 }
 
@@ -324,7 +368,7 @@ header {
 
 	background: none;
 
-	transition: all 0.2s ease;
+	transition: all 0.1s ease;
 }
 
 .navigation__links > a:before {
@@ -422,6 +466,8 @@ header {
 
 	height: 25px;
 	width: 25px;
+
+	font-size: 16px;
 	
 	display: flex;
 	justify-content: center;
@@ -569,9 +615,9 @@ header {
 /* -------------------------------------------- Mode end */
 
 /* ---------------------------------------------- Burger */
-.navigation__background {
+.navigation__burger {
 	position: absolute;
-	bottom: -65px;
+	bottom: 0;
 	right: 0;
 	z-index: 6;
 
@@ -588,15 +634,37 @@ header {
 	border-style: solid;
 
 	background-color: rgb(var(--shadow-black) / 0.9);
-	/* backdrop-filter: blur(4px); */
 }
 
-.navigation__background.open {
-	animation: menu-open 0.6s forwards;
+@media (min-width: 992px) {
+	.navigation__burger {
+		position: fixed;
+		top: 2px;
+		right: 10px;
+		bottom: unset;
+
+		margin: 0;
+
+		border: none;
+		background: none;
+	}
 }
 
-.navigation__background.close {
+.navigation__burger.open {
+	animation: menu-open 0.7s forwards;
+}
+
+.navigation__burger.close {
 	animation: menu-open 0.6s reverse;
+}
+@media (min-width: 992px) {
+	.navigation__burger.open {
+		animation: unset;
+	}
+
+	.navigation__burger.close {
+		animation: unset;
+	}
 }
 
 @keyframes menu-open {
@@ -607,12 +675,12 @@ header {
 	}
 	100% {
 		border-radius: 12px;
-		height: 110%;
+		height: 102%;
 		width: 100%;
 	}
 }
 
-.navigation__background > button {
+.navigation__burger > button {
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -625,7 +693,7 @@ header {
 	align-items: center;
 }
 
-.navigation__background > button > div {
+.navigation__burger > button > div {
 	position: relative;
 
 	height: 3px;
@@ -636,11 +704,11 @@ header {
 	background-color: var(--txt-color);
 }
 
-.navigation__background.open > button > div {
+.navigation__burger.open > button > div {
 	background-color: transparent;
 }
 
-.navigation__background > button > div::before, .navigation__background > button > div::after {
+.navigation__burger > button > div::before, .navigation__burger > button > div::after {
 	content: "";
 
 	position: absolute;
@@ -656,35 +724,83 @@ header {
 	transition: all 1s ease;
 }
 
-.navigation__background > button > div::before {
+.navigation__burger > button > div::before {
 	transform: translateY(-10px);
 }
 
-.navigation__background.open > button > div::before {
+.navigation__burger.open > button > div::before {
 	transform: rotate(45deg);
 }
 
-.navigation__background > button > div::after {
+.navigation__burger > button > div::after {
 	transform: translateY(10px);
 }
 
-.navigation__background.open > button > div::after {
+.navigation__burger.open > button > div::after {
 	transform: rotate(-45deg);
 }
 /* ------------------------------------------ Burger end */
 
-.navigation__visible_element {
+@media (min-width: 992px) {
+	.navigation__background {
+		position: absolute;
+		inset: 0;
+		z-index: 5;
+
+		height: 100%;
+		width: 100%;
+
+		border-left: 1px solid var(--txt-color);
+
+		background-color: rgb(var(--shadow-black) / 0.9);
+
+		transition: all 0.6s ease;
+		transform: translateX(100%);
+	}
+
+	.navigation__background.open {
+		transform: translateX(0);
+	}
+}
+
+.navigation__visible_element:not(.navigation__background) {
 	opacity: 0;
 	pointer-events: none;
-	transform: translateY(-10px);
+	transform: translateY(10px);
 	transition: all 0.6s ease;
 }
 
-.navigation__visible_element.open {
+.navigation__visible_element:not(.navigation__background).open {
 	opacity: 1;
 	pointer-events: auto;
 	transform: translateY(0);
 }
+
+@media (min-width: 992px) {
+	.navigation__visible_element:not(.navigation__background, .navigation__title) {
+		opacity: 0;
+		pointer-events: none;
+		transform: translateX(20px);
+		transition: all 0.6s ease;
+	}
+
+	.navigation__visible_element:not(.navigation__background, .navigation__title).open {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateX(0);
+	}
+
+	.navigation__visible_element.navigation__title {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateX(0);
+	}
+
+	.navigation__title:hover {
+		transform: scale(1.2);
+	}
+}
+
 /* ---------------------------------------------- Navbar end */
 
 
