@@ -20,6 +20,6 @@
 <br>
 
 **Web Layout :** <br>
-My portfolio -> UI/UX, HTML, CSS, JavaScript, a web page in my style (there's always a room for upgrade)
+<a href="https://jujufinote.github.io/My_Portfolio/">My portfolio</a> -> UI/UX, HTML, CSS, JavaScript, a web page in my style (there's always a room for upgrade)
 <br>
 <br>
