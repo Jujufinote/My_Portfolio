@@ -429,10 +429,6 @@ header {
 
 /* ------------------------------- Button CV + animation */
 .navigation__links > a.cv {
-	padding: 0;
-}
-
-.navigation__links > a.cv > button {
 	position: relative;
 
 	padding: 5px;
@@ -453,7 +449,7 @@ header {
 
 @media (min-width: 992px)
 {
-	.navigation__links > a.cv > button:hover {
+	.navigation__links > a.cv:hover {
 		box-shadow:
 			inset 0 3px 6px rgba(255,255,255,0.4),
 			inset 0 -4px 8px rgba(0,0,0,0.4),
@@ -461,7 +457,7 @@ header {
 	}
 }
 
-.navigation__links > a.cv > button > div.here {
+.navigation__links > a.cv > div.here {
 	margin-right: 5px;
 
 	height: 25px;
@@ -474,17 +470,17 @@ header {
 
 	border-radius: 50%;
 
-	background-color: black;
-	box-shadow: inset -2px 3px 6px rgba(255,255,255,0.4);
+	background-color: var(--bg-color);
+	box-shadow: inset -2px 3px 6px rgb(var(--shadow-white) / 0.4);
 
 	color: var(--dark-magenta);
 }
 
-.navigation__links > a.cv > button > span {
+.navigation__links > a.cv > span {
 	padding: 2px 7px 2px 0;
 }
 
-.navigation__links > a.cv > button.move > span {
+.navigation__links > a.cv.move > span {
 	cursor: not-allowed;
 	animation: cv-out 1.2s linear;
 }
@@ -576,7 +572,7 @@ header {
 	transition: all 1s ease;
 }
 
-.mode__div > button > div {
+.mode__div > button > span {
 	margin: 0 1px;
 
 	height: 25px;
@@ -602,13 +598,13 @@ header {
 	transform: translateX(var(--x, 0px)) scale(1);
 }
 
-.mode__div > button.light > div {
+.mode__div > button.light > span {
 	--x: 28px;
 }
 
 @media (min-width: 992px)
 {
-	.mode__div > button:hover > div {
+	.mode__div > button:hover > span {
 		transform: translateX(var(--x, 0px)) scale(1.2);
 	}
 }
@@ -693,7 +689,7 @@ header {
 	align-items: center;
 }
 
-.navigation__burger > button > div {
+.navigation__burger > button > span {
 	position: relative;
 
 	height: 3px;
@@ -704,11 +700,11 @@ header {
 	background-color: var(--txt-color);
 }
 
-.navigation__burger.open > button > div {
+.navigation__burger.open > button > span {
 	background-color: transparent;
 }
 
-.navigation__burger > button > div::before, .navigation__burger > button > div::after {
+.navigation__burger > button > span::before, .navigation__burger > button > span::after {
 	content: "";
 
 	position: absolute;
@@ -724,19 +720,19 @@ header {
 	transition: all 1s ease;
 }
 
-.navigation__burger > button > div::before {
+.navigation__burger > button > span::before {
 	transform: translateY(-10px);
 }
 
-.navigation__burger.open > button > div::before {
+.navigation__burger.open > button > span::before {
 	transform: rotate(45deg);
 }
 
-.navigation__burger > button > div::after {
+.navigation__burger > button > span::after {
 	transform: translateY(10px);
 }
 
-.navigation__burger.open > button > div::after {
+.navigation__burger.open > button > span::after {
 	transform: rotate(-45deg);
 }
 /* ------------------------------------------ Burger end */
@@ -911,6 +907,8 @@ header {
 	border-radius: 8px;
 	border-color: var(--txt-color);
 
+	background-color: var(--bg-color);
+
 	transition: transform 0.5s ease;
 	transform-style: preserve-3d;
 }
@@ -1060,6 +1058,7 @@ header {
 
 footer {
 	padding: var(--m);
+	margin-top: var(--m);
 
 	color: var(--white);
 

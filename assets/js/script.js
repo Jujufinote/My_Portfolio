@@ -90,7 +90,7 @@ function changePage(btn)
 /* ------------------------------------------ Scroll end */
 
 /* ----------------------------------------------- Stars */
-const cv_button = document.querySelector("a.cv button");
+const cv = document.querySelector("a.cv");
 
 
 const star1 = document.createElement("div");
@@ -98,54 +98,51 @@ star1.classList.add("star");
 star1.style.setProperty("--size", 2);
 star1.style.setProperty("--x", -10 / 1 + "px");
 star1.style.setProperty("--y", 5 / 1 + "px");
-cv_button.append(star1);
+cv.append(star1);
 
 const star2 = document.createElement("div");
 star2.classList.add("star");
 star2.style.setProperty("--size", 2);
 star2.style.setProperty("--x", 7 / 1 + "px");
 star2.style.setProperty("--y", -3 / 1 + "px");
-cv_button.append(star2);
+cv.append(star2);
 
 const star3 = document.createElement("div");
 star3.classList.add("star");
 star3.style.setProperty("--size", 3);
 star3.style.setProperty("--x", 30 / 2 + "px");
 star3.style.setProperty("--y", 2 / 2 + "px");
-cv_button.append(star3);
+cv.append(star3);
 
 const star4 = document.createElement("div");
 star4.classList.add("star");
 star4.style.setProperty("--size", 4);
 star4.style.setProperty("--x", -17 / 3 + "px");
 star4.style.setProperty("--y", -8 / 3 + "px");
-cv_button.append(star4);
+cv.append(star4);
 
 const star5 = document.createElement("div");
 star5.classList.add("star");
 star5.style.setProperty("--size", 5);
 star5.style.setProperty("--x", 45 / 4 + "px");
 star5.style.setProperty("--y", -5 / 4 + "px");
-cv_button.append(star5);
+cv.append(star5);
 
 const star6 = document.createElement("div");
 star6.classList.add("star");
 star6.style.setProperty("--size", 5);
 star6.style.setProperty("--x", -40 / 4 + "px");
 star6.style.setProperty("--y", 2 / 4 + "px");
-cv_button.append(star6);
+cv.append(star6);
 
 
-cv_button.addEventListener("click", () => mouveStars());
+cv.addEventListener("click", () => mouveStars());
 
-const cv = document.querySelector("a.cv");
 function mouveStars()
 {
-	cv_button.classList.add("move");
-	cv_button.disabled = true;
-
+	cv.classList.add("move");
 	cv.tabindex = "-1"; // disable tab focus
-	cv.style.pointerEvents = "none"; // enable click
+	cv.style.pointerEvents = "none"; // disable click
 
 	star1.classList.add("move");
 	star2.classList.add("move");
@@ -154,9 +151,7 @@ function mouveStars()
 	star5.classList.add("move");
 	star6.classList.add("move");
 	setTimeout(() => {
-		cv_button.disabled = false;
-		cv_button.classList.remove("move");
-
+		cv.classList.remove("move");
 		cv.tabindex = "0"; // enable tab focus
 		cv.style.pointerEvents = "auto"; // enable click
 

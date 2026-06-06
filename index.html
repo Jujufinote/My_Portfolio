@@ -11,16 +11,16 @@
 	<body>
 		<header>
 			<nav class="header__navigation">
-				<a class="navigation__visible_element navigation__title" href="#title"><img src="assets/img/champignon.png" height="40px" width="40px" alt="icone champignon" /><span>Julie</span></a>
+				<a class="navigation__visible_element navigation__title" href="#title"><img src="assets/img/champignon.png" height="40" width="40" alt="icone champignon" /><span>Julie</span></a>
 				<ul class="navigation__list">
 					<li class="navigation__visible_element navigation__links"><a href="#home" class="page"><span>Accueil</span></a></li>
 					<li class="navigation__visible_element navigation__links"><a href="#project"><span>Mes projets</span></a></li>
 					<li class="navigation__visible_element navigation__links"><a href="#about"><span>À propos</span></a></li>
 					<li class="navigation__visible_element navigation__links"><a href="#contact"><span>Contact</span></a></li>
-					<li class="navigation__visible_element navigation__links"><a href="#title" class="cv"><button><div class="here">></div><span>Télécharger CV</span></button></a></li>
+					<li class="navigation__visible_element navigation__links"><a target="_blank" rel="noopener noreferrer" href="files/Julie_Verdier--Fiot_CV.pdf" class="cv"><div class="here">></div><span>Voir mon CV</span></a></li>
 				</ul>
-				<div class="navigation__visible_element mode__div" id="mode"><img src="assets/img/paillettes.svg" height="20px" width="20px" alt="icone des modes: clair/sombre" /><button class="dark" aria-label="mode sombre ou clair"><div></div></button></div>
-				<div class="navigation__burger"><button id="burger" aria-label="ouvrir ou fermer le menu"><div></div></button></div>
+				<div class="navigation__visible_element mode__div" id="mode"><img src="assets/img/paillettes.svg" height="20" width="20" alt="icone des modes: clair/sombre" /><button class="dark" aria-label="mode sombre ou clair"><span></span></button></div>
+				<div class="navigation__burger"><button id="burger" aria-label="ouvrir ou fermer le menu"><span></span></button></div>
 				<div class="navigation__background"></div>
 			</nav>
 		</header>
@@ -30,14 +30,17 @@
 					<source 
 						type="image/avif"
 						srcset="assets/img/bg-b/bg_480x800.avif 480w, assets/img/bg-b/bg_1024x600.avif 1024w, assets/img/bg-b/bg_1920x1080.avif 1920w, assets/img/bg-b/bg_2880x1800.avif 2880w"
+						sizes="100vw"
 					>
 					<source 
 						type="image/webp"
 						srcset="assets/img/bg-b/bg_480x800.webp 480w, assets/img/bg-b/bg_1024x600.webp 1024w, assets/img/bg-b/bg_1920x1080.webp 1920w, assets/img/bg-b/bg_2880x1800.webp 2880w"
+						sizes="100vw"
 					>
 					<img 
 						src="assets/img/bg-b/bg_1920x1080.jpg"
 						srcset="assets/img/bg-b/bg_480x800.jpg 480w, assets/img/bg-b/bg_1024x600.jpg 1024w, assets/img/bg-b/bg_1920x1080.jpg 1920w, assets/img/bg-b/bg_2880x1800.jpg 2880w"
+						sizes="100vw"
 						alt="image banniere de ciel"
 					>
 				</picture>
@@ -66,21 +69,21 @@
 						</article>
 					</a>
 					<a href="#21">
-						<article id="2">
+						<article id="2" style="z-index: 4;">
 							<h3>42_project : So_long</h3>
 							<img src="" alt="screenshot du projet so long" loading="lazy" />
 							<span>Click Me</span>
 						</article>
 					</a>
 					<a href="#31">
-						<article id="3">
+						<article id="3" style="z-index: 3;">
 							<h3>42_project : minishell</h3>
 							<img src="" alt="screenshot du projet minishell" loading="lazy" />
 							<span>Click Me</span>
 						</article>
 					</a>
 					<a href="#41">
-						<article id="4">
+						<article id="4" style="z-index: 2;">
 							<h3>Web Frontend</h3>
 							<img src="" alt="screenshot de differentes features web" loading="lazy" />
 							<span>Click Me</span>
@@ -143,7 +146,7 @@
 						<li>Docker</li>
 						<li>C, C++</li>
 					</ul>
-					<p class="info">Allez voir la section <span class="emphasis">Projets</span> si ce n'est pas déjà fait ;)</p>
+					<p class="info">Allez voir la section <a href="#project" class="emphasis">Projets</a> si ce n'est pas déjà fait ;)</p>
 				</div>
 				<div>
 					<h3>Ma manière de travailler</h3>
@@ -161,7 +164,7 @@
 			<section class="contact__section" id="contact">
 				<h2>Me contacter</h2>
 				<div class="contact__links">
-					<a target="_blank" rel="noopener noreferrer" href"julie.verdier.fiot@hotmail.com">Envoyer un email</a>
+					<a target="_blank" rel="noopener noreferrer" href="mailto:julie.verdier.fiot@hotmail.com">Envoyer un email</a>
 					<a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/julie-verdier-fiot">LinkedIn</a>
 					<a target="_blank" rel="noopener noreferrer" href="https://github.com/Jujufinote">Profil GitHub</a>
 					<a target="_blank" rel="noopener noreferrer" href="https://github.com/Jujufinote/My_Portfolio">Page GitHub du site</a>
