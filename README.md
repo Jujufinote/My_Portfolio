@@ -1,5 +1,4 @@
 ### My_Portfolio
-The website is not ready yet, please look at the repositories liked below sorted by themes (or look at it anyway, as you want :) )
 <br>
 <br>
 
@@ -21,6 +20,6 @@ The website is not ready yet, please look at the repositories liked below sorted
 <br>
 
 **Web Layout :** <br>
-_waiting for update_
+My portfolio -> UI/UX, HTML, CSS, JavaScript, a web page in my style (there's always a room for upgrade)
 <br>
 <br>
